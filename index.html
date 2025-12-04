@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.S. Law School Research Dashboard - Comparative Analysis</title>
+    <title>Grunin Center for Law and Social Entrepreneurship - Activities Dashboard</title>
     <style>
-        /* --- General and Layout Styles (Copied from original) --- */
         * {
             margin: 0;
             padding: 0;
@@ -43,7 +42,7 @@
 
         .header p {
             color: #330662;
-            font-size: 20px;
+            font-size: 28px;
             font-weight: normal;
         }
 
@@ -138,7 +137,7 @@
             display: block;
         }
 
-        /* --- Executive Summary Styles --- */
+        /* Executive Summary Styles */
         .executive-summary {
             max-width: 1000px;
             margin: 0 auto;
@@ -216,190 +215,296 @@
             line-height: 1.5;
         }
 
-        /* --- New/Adapted Table and Grid Styles --- */
-        .data-table-container {
-            overflow-x: auto;
-            margin-bottom: 30px; 
+        .navigation-guide {
+            background: #f9f9f9;
+            border-left: 4px solid #73a535;
+            padding: 20px;
+            border-radius: 5px;
         }
 
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-
-        .data-table th, .data-table td {
-            padding: 10px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .data-table th {
-            background: #702b9d;
-            color: white;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 12px;
-            border-bottom: 3px solid #330662;
-            position: sticky;
-            top: 0;
-            white-space: nowrap;
-            vertical-align: top; 
-        }
-        
-        .data-table .year-header {
-            background: #00abce;
-            border-bottom: 3px solid #007a93;
-            color: white;
-            font-weight: 600;
-            text-align: center;
-            padding: 5px;
-        }
-
-        /* Styling for the new Commitment Subdivisions */
-        .data-table .commitment-header th {
-            background: #330662;
-            color: white;
-            font-size: 14px;
-            font-weight: 700;
-            padding: 8px 15px;
-            border-top: 4px solid #00abce;
-            border-bottom: 2px solid white;
-        }
-
-        .data-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        /* Ensure rows following a header are white to distinguish the group start */
-        .data-table tr.commitment-header + tr {
-            background-color: white !important;
-        }
-
-        .data-table tr:hover {
-            background-color: #e8f4f8;
-        }
-
-        .data-table .school-name {
-            font-weight: bold;
-            color: #330662;
-        }
-
-        .data-table .yes-cell {
+        .navigation-guide h3 {
             color: #73a535;
-            font-weight: bold;
-            text-align: center;
+            margin-bottom: 15px;
         }
 
-        .data-table .no-cell {
-            color: #cc3300;
-            text-align: center;
+        .nav-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
         }
-        
-        /* Tiered Breakdown Grid */
-        .tier-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        
-        .tier-card {
-            border: 1px solid #00abce;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .tier-header {
-            background: #00abce;
+
+        .nav-step-number {
+            background: #73a535;
             color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .tier-stats {
-            padding: 15px;
-            background: #f4fcff;
-        }
-        
-        .tier-stats p {
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #330662;
-        }
-
-        .tier-stats strong {
-            font-weight: 700;
-            color: #702b9d;
-        }
-
-        /* Summer Program Focus (List style) */
-        .program-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .program-item {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            padding: 15px;
-            border-bottom: 1px dashed #e0e0e0;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            flex-shrink: 0;
         }
 
-        .program-item:last-child {
-            border-bottom: none;
+        .nav-step-content h4 {
+            color: #330662;
+            margin-bottom: 5px;
+            font-size: 15px;
         }
 
-        .school-name {
-            flex: 1;
+        .nav-step-content p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Calendar View Styles */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: 200px repeat(12, 1fr);
+            gap: 2px;
+            background: #e0e0e0;
+            padding: 2px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .calendar-header {
+            background: linear-gradient(135deg, #330662 0%, #702b9d 100%);
+            color: white;
+            padding: 10px 5px;
+            text-align: center;
             font-weight: 600;
+        }
+
+        .activity-row {
+            display: contents;
+        }
+
+        .activity-name {
+            background: white;
+            padding: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+            border-left: 3px solid #73a535;
+        }
+
+        .category-header {
+            background: #f0f0f0;
+            padding: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            color: #330662;
+            border-left: 3px solid #702b9d;
+            grid-column: 1 / -1;
+        }
+
+        .month-cell {
+            background: white;
+            padding: 5px;
+            text-align: center;
+            position: relative;
             color: #330662;
             font-size: 16px;
         }
 
-        .program-details {
-            flex: 2;
-            font-size: 14px;
-            color: #666;
-            margin-left: 20px;
-        }
-        
-        .program-status {
+        .month-active {
             font-weight: bold;
+        }
+        
+        .month-event {
+            color: #00abce;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .month-publication {
             color: #73a535;
-            flex-basis: 150px;
-            text-align: right;
-        }
-        
-        .program-status.none {
-            color: #cc3300;
-        }
-        
-        .program-status.pending {
-            color: #925333;
+            font-size: 14px;
+            font-weight: bold;
         }
 
-        /* New List Styling */
-        .school-list-grid {
+        /* Audience View Styles */
+        .audience-columns {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px 30px;
-            padding: 20px;
-            background: #f9f9f9;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .audience-column {
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
-            border: 1px solid #eee;
+            padding: 20px;
         }
 
-        .school-list-grid li {
-            font-size: 15px;
+        .audience-header {
+            background: linear-gradient(135deg, #00abce 0%, #73a535 100%);
+            color: white;
+            padding: 15px;
+            margin: -20px -20px 20px;
+            text-align: center;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .audience-header h3 {
+            margin-bottom: 5px;
+        }
+
+        .activity-card {
+            background: #f9f9f9;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            border-left: 4px solid #702b9d;
+        }
+
+        .activity-card.primary {
+            background: #e8f4f8;
+            border-left-color: #00abce;
+        }
+
+        .activity-card.secondary {
+            background: #fafafa;
+            border-left-color: #925333;
+        }
+
+        .activity-card h4 {
+            font-size: 13px;
+            margin-bottom: 8px;
             color: #330662;
-            font-weight: 500;
-            list-style: disc;
-            list-style-position: inside;
         }
 
+        .activity-metrics {
+            font-size: 11px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .activity-tags {
+            display: flex;
+            gap: 5px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #e0e0e0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            color: #555;
+        }
+
+        .tag.pillar {
+            background: #f0e6ff;
+            color: #330662;
+            border: 1px solid #702b9d;
+        }
+
+        /* Pillar View Styles - Compressed for PDF */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .pillar-section {
+            border: 1px solid #702b9d;
+            border-radius: 6px;
+            padding: 0;
+        }
+
+        .pillar-header {
+            background: linear-gradient(135deg, #702b9d 0%, #330662 100%);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .pillar-header h3 {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .pillar-header small {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 8px;
+        }
+        
+        .pillar-section .activity-card {
+            padding: 6px 8px;
+            margin-bottom: 4px;
+            background: #f9f9f9;
+            border-radius: 3px;
+            border-left: 2px solid #00abce;
+        }
+        
+        .pillar-section .activity-card h4 {
+            font-size: 11px;
+            margin-bottom: 2px;
+            color: #330662;
+            font-weight: 600;
+        }
+        
+        .pillar-section .activity-metrics {
+            font-size: 10px;
+            color: #666;
+            margin: 0;
+        }
+
+        @media print {
+            .pillar-grid {
+                page-break-inside: avoid;
+            }
+            
+            .pillar-section {
+                break-inside: avoid;
+            }
+        }
+
+        .legend {
+            margin-top: 30px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            font-size: 12px;
+            border-left: 4px solid #73a535;
+        }
+
+        .legend-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #330662;
+        }
+
+        .legend-items {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
 
         .footer-note {
             margin-top: 40px;
@@ -412,450 +517,1071 @@
         }
     </style>
 </head>
-<body onload="showView('summary')">
+<body>
     <div class="container">
         <div class="header">
-            <h1>Accredited U.S. Law Schools Research</h1>
-            <p>Analysis of Programmatic Offerings and Rankings</p>
+            <h1>Grunin Center for Law and Social Entrepreneurship</h1>
+            <p>Annual Activities Dashboard - Strategic Overview</p>
         </div>
 
         <div class="view-controls">
             <div class="view-header active" onclick="showView('summary')">Executive Summary</div>
-            <div class="view-header" onclick="showView('t14')">Tiered Short List</div>
-            <div class="view-header" onclick="showView('tiered')">Tiered Breakdown</div>
-            <div class="view-header" onclick="showView('programs')">Summer Program Focus</div>
+            <div class="view-header" onclick="showView('calendar')">Annual Calendar</div>
+            <div class="view-header" onclick="showView('audience')">View by Audience</div>
+            <div class="view-header" onclick="showView('pillar')">View by Strategic Pillar</div>
         </div>
 
         <div class="view-container">
-            <div id="summary-view" class="view-panel">
+            <!-- Executive Summary View -->
+            <div id="summary-view" class="view-panel active">
                 <div class="executive-summary">
                     <div class="summary-intro">
-                        <h2>Research Overview: U.S. Law School Landscape</h2>
-                        <p>This dashboard presents research compiled on U.S. Law Schools, focusing on their ranking, tier status, and confirmed/potential summer 2025 programming relevant to specific legal fields. The data combines information on top-tier schools with a broader tiered breakdown.</p>
-                        <p>Key findings suggest a strong concentration of relevant summer programs and high-ranking status among the T14 schools, though significant program activity is also noted across all tiers. This analysis supports strategic planning for student outreach, academic collaborations, and program development.</p>
+                        <h2>Executive Summary</h2>
+                        <p>The Grunin Center for Law and Social Entrepreneurship carries out a portfolio of activities each year that advance our mission to strengthen the community of lawyers and legal institutions engaged in social entrepreneurship, impact investing, and sustainable development. While the mix varies from year to year, with some activities being annual and others occurring one time, this dashboard offers a representative view of our programming.</p>
+                        <p>The dashboard is designed to support reflection and planning. It highlights the breadth of our activities, shows how we engage our three target audiences, and helps us track how our work aligns with our strategic priorities. By providing multiple perspectives, it also gives our leadership and stakeholders a shared tool for understanding impact, identifying opportunities, and guiding the Center's future direction.</p>
                     </div>
 
-                    <div class="metrics-bar">
-                        <div class="metric">
-                            <div class="metric-value">17</div>
-                            <div class="metric-label">TOTAL SCHOOLS IN SHORTLIST (Revised)</div>
+                    <div class="navigation-guide">
+                        <h3>How to Use This Dashboard</h3>
+                        <div class="nav-step">
+                            <div class="nav-step-number">1</div>
+                            <div class="nav-step-content">
+                                <h4>Annual Calendar View</h4>
+                                <p>See the temporal distribution of activities across the year. Identify busy periods, potential conflicts, and opportunities for new programming.</p>
+                            </div>
                         </div>
-                        <div class="metric">
-                            <div class="metric-value">9</div>
-                            <div class="metric-label">SCHOOLS WITH STRONG COMMITMENT</div>
+                        <div class="nav-step">
+                            <div class="nav-step-number">2</div>
+                            <div class="nav-step-content">
+                                <h4>View by Audience</h4>
+                                <p>Understand how each audience group is served. Shows primary and secondary beneficiaries, helping identify gaps or opportunities for deeper engagement.</p>
+                            </div>
                         </div>
-                        <div class="metric">
-                            <div class="metric-value">3</div>
-                            <div class="metric-label">SCHOOLS WITH SUBSTANTIAL COMMITMENT</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">5</div>
-                            <div class="metric-label">SCHOOLS WITH SOME COMMITMENT</div>
-                        </div>
-                    </div>
-
-                    <div class="summary-grid">
-                        <div class="summary-card">
-                            <h3><span class="icon">📈</span> T14 Concentration</h3>
-                            <p>T14 schools show high engagement with specific summer programming, suggesting they are critical partners for high-level legal research and student recruitment.</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3><span class="icon">🗺️</span> Geographic Spread</h3>
-                            <p>The Tiered Breakdown shows program presence across all four tiers, confirming broad national reach for program development and information dissemination.</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3><span class="icon">💡</span> Next Steps</h3>
-                            <p>Further research is recommended on the nature of the "potential" summer programs to assess feasibility and alignment with strategic goals.</p>
+                        <div class="nav-step">
+                            <div class="nav-step-number">3</div>
+                            <div class="nav-step-content">
+                                <h4>View by Strategic Pillar</h4>
+                                <p>Examine how activities align with our four strategic pillars. Useful for ensuring balanced portfolio and identifying areas for growth.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="t14-view" class="view-panel">
-                <h2>Tiered Shortlist: Institutional Commitment and Programmatic Offerings</h2>
-                
-                <div class="data-table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th style="width: 250px;">School</th>
-                                <th>2025 Clinics</th>
-                                <th>2025 Centers</th>
-                                <th>2025 Courses</th>
-                                <th>2025 Institutional Commitment</th>
-                                <th>2022 Clinics</th>
-                                <th>2022 Centers</th>
-                                <th>2022 Courses</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="school-name">New York University School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                            </tr>
-                            
-                            <tr class="commitment-header">
-                                <th colspan="8">Strong Institutional Commitment*</th>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Columbia Law School</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Georgetown University Law Center</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Northwestern Pritzker School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">UC Berkeley Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">University of California at Los Angeles (UCLA) School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">University of Michigan School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">University of Virginia School of Law</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Yale Law School</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-
-                            <tr class="commitment-header">
-                                <th colspan="8">Substantial Institutional Commitment**</th>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Boston College Law School</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">University of Missouri--Kansas City School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">University of Washington School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-
-                            <tr class="commitment-header">
-                                <th colspan="8">Some Institutional Commitment***</th>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Brooklyn Law School</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Northeastern University School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Pace University--Elisabeth Haub School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">Pepperdine Caruso School of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td class="school-name">West Virginia University College of Law</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- Calendar View -->
+            <div id="calendar-view" class="view-panel">
+                <div class="calendar-grid">
+                    <!-- Header Row -->
+                    <div class="calendar-header">Activity</div>
+                    <div class="calendar-header">Jan</div>
+                    <div class="calendar-header">Feb</div>
+                    <div class="calendar-header">Mar</div>
+                    <div class="calendar-header">Apr</div>
+                    <div class="calendar-header">May</div>
+                    <div class="calendar-header">Jun</div>
+                    <div class="calendar-header">Jul</div>
+                    <div class="calendar-header">Aug</div>
+                    <div class="calendar-header">Sep</div>
+                    <div class="calendar-header">Oct</div>
+                    <div class="calendar-header">Nov</div>
+                    <div class="calendar-header">Dec</div>
+                    
+                    <!-- EVENTS -->
+                    <div class="category-header">EVENTS</div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Conference</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-event">EVENT</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">IFC Impact Legal Fellows Program (Year-round planning required)</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-event">EVENT</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">CLE Workshop</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-event">EVENT</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Symposium</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-event">EVENT</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Legal Scholars Convening</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-event">EVENT</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Hall of Impact</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-event">EVENT</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Webinars</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <!-- AWARDS -->
+                    <div class="category-header">AWARDS</div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Grunin Prize</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-event">AWARD</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Sustained Commitment Prize</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-event">AWARD</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">White & Case Award</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-event">AWARD</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Impact Scholarship</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Nordlicht Scholarship</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <!-- STUDENT ACTIVITIES & RESOURCES -->
+                    <div class="category-header">STUDENT ACTIVITIES & RESOURCES</div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">International Transactions Clinic</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Tepper Fellows</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Tepper Report Production</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-publication">PUB</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">SESL - Alt Break Trip Support</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">White & Case Social Entrepreneurship Summer Internship</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Intesa Sanpaolo Junior Scholar</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Social Enterprise Law Tracker (SELT)</div>
+                        <div class="month-cell month-publication">PUB</div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                        <div class="month-cell"></div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Case Studies Series (MicroBuild Fund)</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Teaching Fellows</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                    </div>
+                    
+                    <div class="activity-row">
+                        <div class="activity-name">Research Assistants</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                        <div class="month-cell month-active">●</div>
+                    </div>
                 </div>
-
-                <h2 style="margin-top: 40px; border-bottom: 2px solid #702b9d; padding-bottom: 10px; color: #330662;">Tier Criteria</h2>
                 
-                <div class="tier-criteria-container" style="margin-top: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
-                    <h3 style="color: #330662; margin-bottom: 5px; border-left: 3px solid #702b9d; padding-left: 10px;">Strong Institutional Commitment*</h3>
-                    <p style="margin-bottom: 15px; color: #666; font-size: 15px;">Schools in this category demonstrate a high level of institutional commitment to social entrepreneurship, impact investing, and/or sustainable development. This commitment is demonstrated through a dedicated, formal center or institute (or a similarly structured program) that acts as a singular organizing hub for the school's relevant offerings. This center coordinates a comprehensive suite of programming, including clinics, courses, student groups, and recurring events/symposia. This structure often involves cross-campus collaboration (e.g., with a business school) and includes the visible support of institutional leadership (e.g., a dean or associate dean).</p>
-
-                    <h3 style="color: #330662; margin-bottom: 5px; border-left: 3px solid #702b9d; padding-left: 10px;">Substantial Institutional Commitment**</h3>
-                    <p style="margin-bottom: 15px; color: #666; font-size: 15px;">Schools in this category demonstrate a clear focus on social entrepreneurship, impact investing, and/or sustainable development through specific programming, although they may lack the comprehensive institutional commitment of a school with “strong institutional commitment.” Their engagement is typically part of a broader, more general program (e.g., a general entrepreneurship center) and/or lacks a dedicated institutional commitment. This is typically evidenced by a general entrepreneurship clinic that has worked with social enterprises but does not state it as a core mission, or a business law course with a single related component or module. The institutional commitment to these areas is less clear and not a central priority.</p>
-
-                    <h3 style="color: #330662; margin-bottom: 5px; border-left: 3px solid #702b9d; padding-left: 10px;">Some Institutional Commitment***</h3>
-                    <p style="margin-bottom: 0px; color: #666; font-size: 15px;">Schools in this category offer programming relevant to social entrepreneurship, impact investing, and/or sustainable development, but this is a secondary focus. Their engagement is typically part of a broader, more general program (e.g., programming that is more generally concerned with entrepreneurship, sustainability, community/international development) and lacks explicit keyword focus in the program's current mission or name.</p>
+                <div class="legend">
+                    <div class="legend-title">Activity Timeline Key</div>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span style="color: #330662; font-weight: bold; font-size: 16px;">●</span> = Team is actively working on the activity during this month
+                        </div>
+                        <div class="legend-item">
+                            <span style="color: #00abce; font-weight: bold;">EVENT</span> = Month when the event takes place
+                        </div>
+                        <div class="legend-item">
+                            <span style="color: #73a535; font-weight: bold;">AWARD/PUB</span> = Award announcement or publication release
+                        </div>
+                    </div>
                 </div>
-                <p style="margin-top: 20px; font-size: 12px; color: #666; font-style: italic; text-align: right; padding-right: 10px;">
-                    */**/*** These commitment levels are defined in the Tier Criteria section below.
-                </p>
             </div>
 
-            <div id="tiered-view" class="view-panel">
-                <h2>Analysis by USN Tier and Program Status</h2>
-                
-                <div class="metrics-bar" style="margin-top: 20px;">
-                    <div class="metric">
-                        <div class="metric-value">25</div>
-                        <div class="metric-label">Total Schools in Tier 1</div>
+            <!-- Audience View -->
+            <div id="audience-view" class="view-panel">
+                <div class="audience-columns">
+                    <div class="audience-column">
+                        <div class="audience-header">
+                            <h3>Students</h3>
+                            <small>13 Primary | 2 Secondary Activities</small>
+                        </div>
+                        
+                        <!-- Primary Student Activities -->
+                        <div class="activity-card primary">
+                            <h4>Tepper Fellows</h4>
+                            <div class="activity-metrics">12 applicants → 5 Fellows</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                                <span class="tag pillar">Invests in Students</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Tepper Report Production</h4>
+                            <div class="activity-metrics">8 years of reports</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                                <span class="tag pillar">Invests in Students</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>SESL - Alt Break Trip Support</h4>
+                            <div class="activity-metrics">14 students</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Invests in Students</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>White & Case Social Entrepreneurship Summer Internship</h4>
+                            <div class="activity-metrics">2 students placed</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Invests in Students</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>White & Case Award</h4>
+                            <div class="activity-metrics">2 students recognized</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Invests in Students</span>
+                                <span class="tag pillar">Celebrates</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Intesa Sanpaolo Junior Scholar</h4>
+                            <div class="activity-metrics">3 students selected</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">All 4 Pillars</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Impact Scholarship</h4>
+                            <div class="activity-metrics">1 student</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Invests in Students</span>
+                                <span class="tag pillar">Celebrates</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Nordlicht Scholarship</h4>
+                            <div class="activity-metrics">1 student</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Invests in Students</span>
+                                <span class="tag pillar">Celebrates</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Social Enterprise Law Tracker (SELT)</h4>
+                            <div class="activity-metrics">Annual report production</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                                <span class="tag pillar">Invests in Students</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>International Transactions Clinic</h4>
+                            <div class="activity-metrics">2,300 pro bono hours</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Invests in Students</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Case Studies Series (MicroBuild Fund)</h4>
+                            <div class="activity-metrics">6 case studies in development</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Practitioners & Scholars</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Teaching Fellows</h4>
+                            <div class="activity-metrics">1-2 per year</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Scholars</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Research Assistants</h4>
+                            <div class="activity-metrics">3-8 per year</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Scholars</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Secondary Student Activities -->
+                        <div class="activity-card secondary">
+                            <h4>Conference</h4>
+                            <div class="activity-metrics">Part of 301 attendees</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Practitioners</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card secondary">
+                            <h4>Symposium</h4>
+                            <div class="activity-metrics">Secondary audience</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Scholars</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">16</div>
-                        <div class="metric-label">Total Schools in Tier 2</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">20</div>
-                        <div class="metric-label">Total Schools in Tier 3</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">14</div>
-                        <div class="metric-label">Total Schools in Tier 4</div>
-                    </div>
-                </div>
 
-                <div class="tier-grid">
-                    <div class="tier-card">
-                        <div class="tier-header">Tier 1 (T1)</div>
-                        <div class="tier-stats">
-                            <p><strong>Confirmed Programs:</strong> 10</p>
-                            <p><strong>Potential Programs:</strong> 5</p>
-                            <p><strong>No Programs:</strong> 10</p>
-                            <p><strong>% w/ Program:</strong> 60%</p>
+                    <div class="audience-column">
+                        <div class="audience-header">
+                            <h3>Practitioners</h3>
+                            <small>8 Primary | 2 Secondary Activities</small>
+                        </div>
+                        
+                        <!-- Primary Practitioner Activities -->
+                        <div class="activity-card primary">
+                            <h4>Conference</h4>
+                            <div class="activity-metrics">375 registrants | 301 attendees | 94 speakers</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                                <span class="tag pillar">Celebrates</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Grunin Prize</h4>
+                            <div class="activity-metrics">9 applicants → 5 finalists → 1 winner</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Thought Leadership</span>
+                                <span class="tag pillar">Celebrates</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Sustained Commitment Prize</h4>
+                            <div class="activity-metrics">1 award</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Celebrates</span>
+                                <span class="tag">Also serves Scholars</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>CLE Workshop</h4>
+                            <div class="activity-metrics">18 attendees</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>IFC Impact Legal Fellows Program</h4>
+                            <div class="activity-metrics">13 participants | 12 jurisdictions | 12 law firms</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Webinars</h4>
+                            <div class="activity-metrics">2-3 per year</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Hall of Impact</h4>
+                            <div class="activity-metrics">20 projects showcased</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                                <span class="tag pillar">Celebrates</span>
+                                <span class="tag">Also serves Scholars</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Case Studies Series (MicroBuild Fund)</h4>
+                            <div class="activity-metrics">Real-world teaching materials</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Students & Scholars</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Secondary Practitioner Activities -->
+                        <div class="activity-card secondary">
+                            <h4>Symposium</h4>
+                            <div class="activity-metrics">16 submissions | 5 presenters</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Scholars</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card secondary">
+                            <h4>Legal Scholars Convening</h4>
+                            <div class="activity-metrics">23 participants</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Scholars</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="tier-card">
-                        <div class="tier-header">Tier 2 (T2)</div>
-                        <div class="tier-stats">
-                            <p><strong>Confirmed Programs:</strong> 5</p>
-                            <p><strong>Potential Programs:</strong> 3</p>
-                            <p><strong>No Programs:</strong> 8</p>
-                            <p><strong>% w/ Program:</strong> 50%</p>
+
+                    <div class="audience-column">
+                        <div class="audience-header">
+                            <h3>Scholars</h3>
+                            <small>7 Primary | 4 Secondary Activities</small>
                         </div>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-header">Tier 3 (T3)</div>
-                        <div class="tier-stats">
-                            <p><strong>Confirmed Programs:</strong> 4</p>
-                            <p><strong>Potential Programs:</strong> 2</p>
-                            <p><strong>No Programs:</strong> 14</p>
-                            <p><strong>% w/ Program:</strong> 30%</p>
+                        
+                        <!-- Primary Scholar Activities -->
+                        <div class="activity-card primary">
+                            <h4>Symposium</h4>
+                            <div class="activity-metrics">16 submissions | 5 presenters | 5 commentators</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Educates</span>
+                                <span class="tag pillar">Thought Leadership</span>
+                                <span class="tag pillar">Celebrates</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-header">Tier 4 (T4)</div>
-                        <div class="tier-stats">
-                            <p><strong>Confirmed Programs:</strong> 2</p>
-                            <p><strong>Potential Programs:</strong> 1</p>
-                            <p><strong>No Programs:</strong> 11</p>
-                            <p><strong>% w/ Program:</strong> 21%</p>
+                        
+                        <div class="activity-card primary">
+                            <h4>Legal Scholars Convening</h4>
+                            <div class="activity-metrics">23 participants | 22 institutions</div>
+                            <div class="activity-tags">
+                                <span class="tag pillar">Thought Leadership</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Sustained Commitment Prize</h4>
+                            <div class="activity-metrics">Recognition of career contributions</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Practitioners</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Hall of Impact</h4>
+                            <div class="activity-metrics">20 projects analyzed</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Practitioners</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Case Studies Series (MicroBuild Fund)</h4>
+                            <div class="activity-metrics">Teaching materials development</div>
+                            <div class="activity-tags">
+                                <span class="tag">Cross-audience resource</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Teaching Fellows</h4>
+                            <div class="activity-metrics">1-2 positions per year</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Students</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card primary">
+                            <h4>Research Assistants</h4>
+                            <div class="activity-metrics">Supporting faculty research</div>
+                            <div class="activity-tags">
+                                <span class="tag">Also serves Students</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Secondary Scholar Activities -->
+                        <div class="activity-card secondary">
+                            <h4>Conference</h4>
+                            <div class="activity-metrics">Part of 301 attendees</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Practitioners</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card secondary">
+                            <h4>Grunin Prize</h4>
+                            <div class="activity-metrics">Recognition opportunity</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Practitioners</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card secondary">
+                            <h4>CLE Workshop</h4>
+                            <div class="activity-metrics">Knowledge exchange</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Practitioners</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card secondary">
+                            <h4>IFC Impact Legal Fellows Program</h4>
+                            <div class="activity-metrics">Cross-jurisdictional insights</div>
+                            <div class="activity-tags">
+                                <span class="tag">Primary: Practitioners</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="data-table-container" style="margin-top: 30px;">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>School Name</th>
-                                <th>USN Rank</th>
-                                <th>Tier</th>
-                                <th>Confirmed Program</th>
-                                <th>Potential Program</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Boston University School of Law</td>
-                                <td class="rank">27</td>
-                                <td>T2</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td>George Washington University Law School</td>
-                                <td class="rank">32</td>
-                                <td>T2</td>
-                                <td class="no-cell">-</td>
-                                <td class="yes-cell">X</td>
-                            </tr>
-                            <tr>
-                                <td>Tulane University Law School</td>
-                                <td class="rank">57</td>
-                                <td>T3</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td>Villanova University Charles Widger School of Law</td>
-                                <td class="rank">67</td>
-                                <td>T3</td>
-                                <td class="no-cell">-</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                            <tr>
-                                <td>University of Baltimore School of Law</td>
-                                <td class="rank">125</td>
-                                <td>T4</td>
-                                <td class="yes-cell">X</td>
-                                <td class="no-cell">-</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="legend">
+                    <div class="legend-title">Audience Engagement Pattern</div>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #e8f4f8;"></div>
+                            Primary beneficiary
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #fafafa;"></div>
+                            Secondary beneficiary
+                        </div>
+                        <div class="legend-item">Total Activities: 22</div>
+                        <div class="legend-item">Cross-audience activities demonstrate integration across communities</div>
+                    </div>
                 </div>
             </div>
 
-            <div id="programs-view" class="view-panel">
-                <h2>Schools with Confirmed or Potential Summer Programs (All Tiers)</h2>
-                <div style="padding: 20px; background: #f9f9f9; border-radius: 6px;">
-                    <ul class="program-list">
-                        <li class="program-item">
-                            <div class="school-name">Yale Law School (T1)</div>
-                            <div class="program-details">Global Public Interest Fellowship</div>
-                            <div class="program-status">CONFIRMED</div>
-                        </li>
-                        <li class="program-item">
-                            <div class="school-name">University of Michigan Law School (T1)</div>
-                            <div class="program-details">International Summer School (Status Check Required)</div>
-                            <div class="program-status pending">PENDING</div>
-                        </li>
-                        <li class="program-item">
-                            <div class="school-name">Boston University School of Law (T2)</div>
-                            <div class="program-details">Intellectual Property Summer Institute</div>
-                            <div class="program-status">CONFIRMED</div>
-                        </li>
-                        <li class="program-item">
-                            <div class="school-name">Tulane University Law School (T3)</div>
-                            <div class="program-details">International Summer School in Greece</div>
-                            <div class="program-status">CONFIRMED</div>
-                        </li>
-                        <li class="program-item">
-                            <div class="school-name">Georgetown University Law Center (T1)</div>
-                            <div class="program-details">Possible summer certificate program expansion</div>
-                            <div class="program-status pending">PENDING</div>
-                        </li>
-                        <li class="program-item">
-                            <div class="school-name">University of Baltimore School of Law (T4)</div>
-                            <div class="program-details">Summer Public Service Internship Stipends</div>
-                            <div class="program-status">CONFIRMED</div>
-                        </li>
-                        <li class="program-item">
-                            <div class="school-name">University of Texas at Austin School of Law (T2)</div>
-                            <div class="program-details">No specific summer program found.</div>
-                            <div class="program-status none">NONE FOUND</div>
-                        </li>
-                        <li class="program-item">
-                            <div class="school-name">Temple University Beasley School of Law (T3)</div>
-                            <div class="program-details">Summer Internship Funding Program</div>
-                            <div class="program-status">CONFIRMED</div>
-                        </li>
-                    </ul>
+            <!-- Strategic Pillar View -->
+            <div id="pillar-view" class="view-panel">
+                <div class="pillar-grid">
+                    <div class="pillar-section">
+                        <div class="pillar-header">
+                            <h3>Educates</h3>
+                            <small>16 Activities</small>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-card">
+                                <h4>Conference</h4>
+                                <div class="activity-metrics">301 attendees | 94 speakers</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>CLE Workshop</h4>
+                                <div class="activity-metrics">18 legal professionals</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>IFC Impact Legal Fellows Program</h4>
+                                <div class="activity-metrics">12 jurisdictions represented</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Symposium</h4>
+                                <div class="activity-metrics">Academic exchange platform</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Tepper Fellows</h4>
+                                <div class="activity-metrics">5 Fellows selected</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Tepper Report Production</h4>
+                                <div class="activity-metrics">8 years of research</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>SESL - Alt Break Trip Support</h4>
+                                <div class="activity-metrics">14 students engaged</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>White & Case Social Entrepreneurship Summer Internship</h4>
+                                <div class="activity-metrics">2 placements</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Intesa Sanpaolo Junior Scholar</h4>
+                                <div class="activity-metrics">3 students supported</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Webinars</h4>
+                                <div class="activity-metrics">2-3 per year</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Social Enterprise Law Tracker (SELT)</h4>
+                                <div class="activity-metrics">Annual updates</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Hall of Impact</h4>
+                                <div class="activity-metrics">20 projects showcased</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>International Transactions Clinic</h4>
+                                <div class="activity-metrics">2,300 pro bono hours</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Case Studies Series (MicroBuild Fund)</h4>
+                                <div class="activity-metrics">6 cases in development</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Teaching Fellows</h4>
+                                <div class="activity-metrics">1-2 per year</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Research Assistants</h4>
+                                <div class="activity-metrics">3-8 per year</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pillar-section">
+                        <div class="pillar-header">
+                            <h3>Thought Leadership</h3>
+                            <small>14 Activities</small>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-card">
+                                <h4>Conference</h4>
+                                <div class="activity-metrics">Leading discourse in the field</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Grunin Prize</h4>
+                                <div class="activity-metrics">Recognizing innovation</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>CLE Workshop</h4>
+                                <div class="activity-metrics">Professional development</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>IFC Impact Legal Fellows Program</h4>
+                                <div class="activity-metrics">Global perspectives</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Symposium</h4>
+                                <div class="activity-metrics">5 presenters | 5 commentators</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Legal Scholars Convening</h4>
+                                <div class="activity-metrics">22 institutions</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Tepper Fellows</h4>
+                                <div class="activity-metrics">Next generation leaders</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Tepper Report Production</h4>
+                                <div class="activity-metrics">Research dissemination</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Intesa Sanpaolo Junior Scholar</h4>
+                                <div class="activity-metrics">Excellence in scholarship</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Social Enterprise Law Tracker (SELT)</h4>
+                                <div class="activity-metrics">Field-defining resource</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Hall of Impact</h4>
+                                <div class="activity-metrics">Best practices showcase</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Case Studies Series (MicroBuild Fund)</h4>
+                                <div class="activity-metrics">Teaching innovation</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Teaching Fellows</h4>
+                                <div class="activity-metrics">Academic development</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Research Assistants</h4>
+                                <div class="activity-metrics">Research advancement</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pillar-section">
+                        <div class="pillar-header">
+                            <h3>Invests in Students</h3>
+                            <small>13 Activities</small>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-card">
+                                <h4>Tepper Fellows</h4>
+                                <div class="activity-metrics">12 applicants → 5 Fellows</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Tepper Report Production</h4>
+                                <div class="activity-metrics">Student research platform</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>SESL - Alt Break Trip Support</h4>
+                                <div class="activity-metrics">14 students</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>White & Case Social Entrepreneurship Summer Internship</h4>
+                                <div class="activity-metrics">2 placements</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>White & Case Award</h4>
+                                <div class="activity-metrics">2 recipients</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Intesa Sanpaolo Junior Scholar</h4>
+                                <div class="activity-metrics">3 scholars</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Impact Scholarship</h4>
+                                <div class="activity-metrics">1 recipient</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Nordlicht Scholarship</h4>
+                                <div class="activity-metrics">1 recipient</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Social Enterprise Law Tracker (SELT)</h4>
+                                <div class="activity-metrics">Student research opportunity</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>International Transactions Clinic</h4>
+                                <div class="activity-metrics">Experiential learning</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Case Studies Series (MicroBuild Fund)</h4>
+                                <div class="activity-metrics">Teaching materials</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Teaching Fellows</h4>
+                                <div class="activity-metrics">Career development</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Research Assistants</h4>
+                                <div class="activity-metrics">Research training</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pillar-section">
+                        <div class="pillar-header">
+                            <h3>Celebrates</h3>
+                            <small>9 Activities</small>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-card">
+                                <h4>Conference</h4>
+                                <div class="activity-metrics">Community gathering</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Grunin Prize</h4>
+                                <div class="activity-metrics">1 winner recognized</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Sustained Commitment Prize</h4>
+                                <div class="activity-metrics">Career achievement honored</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Symposium</h4>
+                                <div class="activity-metrics">Scholarly achievement</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>White & Case Award</h4>
+                                <div class="activity-metrics">Student excellence</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Intesa Sanpaolo Junior Scholar</h4>
+                                <div class="activity-metrics">International recognition</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Impact Scholarship</h4>
+                                <div class="activity-metrics">Social impact commitment</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Nordlicht Scholarship</h4>
+                                <div class="activity-metrics">Academic achievement</div>
+                            </div>
+                            <div class="activity-card">
+                                <h4>Hall of Impact</h4>
+                                <div class="activity-metrics">Innovation showcase</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-title">Strategic Integration</div>
+                    <div class="legend-items">
+                        <div class="legend-item">19 of 22 activities serve multiple strategic pillars, demonstrating highly integrated programming</div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="footer-note">
-            Dashboard produced November 2025. Data is a synthesized sample from uploaded files.
+            Dashboard produced September 2025
         </div>
     </div>
 
@@ -877,9 +1603,9 @@
             // Set the appropriate header as active
             const viewIndex = {
                 'summary': 0,
-                't14': 1,
-                'tiered': 2,
-                'programs': 3
+                'calendar': 1,
+                'audience': 2,
+                'pillar': 3
             };
             
             if (viewIndex[viewName] !== undefined) {
@@ -887,11 +1613,12 @@
             }
         }
         
-        // Initialize the dashboard to show the summary view
-        // Using window.onload to ensure the entire page and DOM are ready before running the function.
-        window.onload = function() {
-            showView('summary');
-        };
+        // FOR PDF GENERATION:
+        // Before saving each PDF, call the appropriate function:
+        // showView('summary') - for Executive Summary PDF
+        // showView('calendar') - for Annual Calendar PDF
+        // showView('audience') - for View by Audience PDF
+        // showView('pillar') - for View by Strategic Pillar PDF
     </script>
 </body>
 </html>
